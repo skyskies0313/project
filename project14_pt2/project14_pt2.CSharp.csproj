@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\SS.cs" />
     <Compile Include="Assets\Scripts\ScreenShot.cs" />
     <Compile Include="Assets\Scripts\SimpleFollow.cs" />
+    <Compile Include="Assets\Scripts\TestGetReward.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
