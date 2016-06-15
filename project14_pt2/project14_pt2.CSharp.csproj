@@ -61,6 +61,9 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Scripts\websocket-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="project14_pt2.CSharp.Plugins.csproj">
@@ -70,13 +73,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Car.cs" />
-    <Compile Include="Assets\Scripts\Car2.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
     <Compile Include="Assets\Scripts\Reward.cs" />
     <Compile Include="Assets\Scripts\SS.cs" />
     <Compile Include="Assets\Scripts\ScreenShot.cs" />
     <Compile Include="Assets\Scripts\SimpleFollow.cs" />
     <Compile Include="Assets\Scripts\TestGetReward.cs" />
+    <Compile Include="Assets\Scripts\TestgetReward2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

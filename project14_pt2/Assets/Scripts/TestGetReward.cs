@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TestGetReward : MonoBehaviour {
     byte[] a;
+    
 	void Update () {
 
         a = Reward.getReward();
@@ -14,4 +15,5 @@ public class TestGetReward : MonoBehaviour {
         if (Input.GetKeyDown("b"))
             Debug.Log(System.BitConverter.ToDouble(a, 0));
     }
+
 }
