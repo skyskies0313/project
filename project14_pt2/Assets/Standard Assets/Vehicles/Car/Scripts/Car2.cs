@@ -25,5 +25,8 @@ public class Car2 : MonoBehaviour
         string labelZ = "z=" + posz.ToString();
         GUI.Label(new Rect(0, 0, 100, 30), labelX);
         GUI.Label(new Rect(0, 50, 100, 30), labelZ);
+        GUI.Label(new Rect(0, 90, 100, 30), trackGoal.getCount().ToString());
+       
+
     }
 }

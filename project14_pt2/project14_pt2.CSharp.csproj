@@ -74,10 +74,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Car.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
-    <Compile Include="Assets\Scripts\Reward.cs" />
     <Compile Include="Assets\Scripts\SS.cs" />
     <Compile Include="Assets\Scripts\ScreenShot.cs" />
     <Compile Include="Assets\Scripts\SimpleFollow.cs" />
+    <Compile Include="Assets\Scripts\StageGenerator.cs" />
     <Compile Include="Assets\Scripts\TestGetReward.cs" />
     <Compile Include="Assets\Scripts\TestgetReward2.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ public class TestGetReward : MonoBehaviour {
     
 	void Update () {
 
-        a = Reward.getReward();
+        //a = Reward.getReward();
         if (Input.GetKeyDown("r"))
             for (int i = 0; i < a.Length; i++)
             {

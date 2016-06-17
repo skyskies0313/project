@@ -8,16 +8,34 @@ public class Calc : MonoBehaviour
     public static double preReward = 0;
     public static double trackSize = 1200.00;   //トラックの距離
     public static Collider other;
-    public static int calcCount = (trackGoal.count - 1) / 6 + 1;
+    public static int calcCount = trackGoal.getCount();
+    
 
 
+    public static void setcarXZ(double carx, double carz)
+    {
+        carX = carx;
+        carZ = carz;
+    }
+
+    public static double getCarX()
+    {
+        return carX;
+    }
+
+    public static double getCarZ()
+    {
+        return carZ;
+    }
 
     public static double getCurrentReward()
 
     {
-        calcCount = (trackGoal.count - 1) / 6 + 1;
+        calcCount = trackGoal.getCount();
+        
         carZ = GameObject.Find("Car").GetComponent<Collider>().transform.position.z;
         carX = GameObject.Find("Car").GetComponent<Collider>().transform.position.x;
+        setcarXZ(carX, carZ);
         double[] basePointZ = new double[] { 120.00, 480.00, 720.00, 1080.00};
         //{最初のカーブに入る点, 最初のカーブを出る点, 2番目のカーブに入る点, 2番目のカーブを出る点}
         double[] centerZ = new double[] { 120.00, -120.00 };
@@ -82,16 +100,24 @@ public class Calc : MonoBehaviour
 
     }
 
-    /*void OnGUI()
-    {
-        GUI.Label(new Rect(0, 120, 100, 30), calcCount.ToString());
-    }*/
+  
 
 
     public static byte[] CalcReward()
     {
-        double Reward = getCurrentReward() - preReward;
-        preReward = getCurrentReward();
+        getCurrentReward();
+        double Reward;
+        if ((!CheckPoint.getCheckPoint() || !CheckPoint2.getCheckPoint2() || !CheckPoint3.getCheckPoint3())&&!IsFirstStraight())
+        {
+            Reward = getCurrentReward() - trackSize * calcCount - preReward;
+            preReward = getCurrentReward() - trackSize * calcCount;
+        }
+        else
+        {
+            Reward = getCurrentReward() - preReward;
+            preReward = getCurrentReward();
+        }
+        
         Debug.Log(Reward);
         return System.BitConverter.GetBytes(Reward);
     
