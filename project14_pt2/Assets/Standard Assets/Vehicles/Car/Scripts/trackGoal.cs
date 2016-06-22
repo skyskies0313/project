@@ -24,7 +24,14 @@ public class trackGoal : MonoBehaviour {
             CheckPoint.setCheckPoint(false);
             CheckPoint2.setCheckPoint2(false);
             CheckPoint3.setCheckPoint3(false);
-            Debug.Log(getCount().ToString());
+            // Debug.Log(getCount().ToString());
+        }
+        /*else if(!(other.gameObject.tag == "Untagged"))
+        {
+            Calc.setBack(true);
+        }*/
+        else if (!(CheckPoint.getCheckPoint() && CheckPoint2.getCheckPoint2() && CheckPoint3.getCheckPoint3())){
+            Calc.setBack(false);
         }
     }
 
@@ -47,16 +54,16 @@ public class trackGoal : MonoBehaviour {
     {
 
 
-        if (Calc.getCarZ() > 0)
+        if (Calc.carZ > 0)
         {
             GameObject.Find("Goal").GetComponent<Collider>().enabled = false;
         }
-        else if (Calc.getCarZ() <= 0)
+        else if (Calc.carZ <= 0)
         {
 
             GameObject.Find("Goal").GetComponent<Collider>().enabled = true;
         }
-       
+     
     }
 
 }

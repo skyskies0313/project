@@ -73,7 +73,7 @@ namespace WS
             if (Input.GetKeyDown("g"))
             {
                 StartCoroutine("GetImage"); // GetImage関数をコルーチンとして実行する
-                Debug.Log(Calc.calcCount);
+                //Debug.Log(Calc.calcCount);
                 // framecount = 0;
             }
             //framecount++;

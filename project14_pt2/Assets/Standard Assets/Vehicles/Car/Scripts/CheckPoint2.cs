@@ -15,15 +15,19 @@ public class CheckPoint2 : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Car" && !CheckPoint.getCheckPoint() && !CheckPoint3.getCheckPoint3())
+        if ((other.gameObject.tag == "Car" || other.gameObject.tag == "Untagged") && !CheckPoint.getCheckPoint() && !CheckPoint3.getCheckPoint3())
+        {
             setCheckPoint2(true);
-        Debug.Log(getCheckPoint2().ToString());
-
+            Calc.setBack(false);
+            Debug.Log(getCheckPoint2().ToString());
+        }
+        else
+        {
+            Calc.setBack(true);
+        }
 
     }
-    void OnTriggerExit(Collider other)
-    {
-    }
+    
 
     public static bool getCheckPoint2()
     {

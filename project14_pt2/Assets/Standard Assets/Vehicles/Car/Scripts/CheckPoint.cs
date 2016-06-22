@@ -14,10 +14,16 @@ public class CheckPoint : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Car" && CheckPoint2.getCheckPoint2() && !CheckPoint3.getCheckPoint3())
-        setCheckPoint(true);
-        Debug.Log(getCheckPoint().ToString());
-
+        if ((other.gameObject.tag == "Car" || other.gameObject.tag == "Untagged") && CheckPoint2.getCheckPoint2() && !CheckPoint3.getCheckPoint3())
+        {
+            setCheckPoint(true);
+            Calc.setBack(false);
+            Debug.Log(getCheckPoint().ToString());
+        }
+        else
+        {
+            Calc.setBack(true);
+        }
 
     }
     void OnTriggerExit(Collider other)

@@ -33,8 +33,13 @@ namespace UnityStandardAssets.Vehicles.Car
                     m_Car.Move(0, -1, -1, 0f);
                     print("back");
                     break;
-                case "4":
-                    print("brank");
+                case "4": //back and left
+                    m_Car.Move(-1, -1, -1, 0f);
+                    print("back left");
+                    break;
+                case "5": // back and right
+                    m_Car.Move(1, -1, -1, 0f);
+                    print("back right");
                     break;
             }
         }

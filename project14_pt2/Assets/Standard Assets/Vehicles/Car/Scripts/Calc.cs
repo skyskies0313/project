@@ -8,7 +8,19 @@ public class Calc : MonoBehaviour
     public static double preReward = 0;
     public static double trackSize = 1200.00;   //トラックの距離
     public static int calcCount = trackGoal.getCount();
+    public static bool back = false;
     
+    public static void setBack(bool tf)
+    {
+        back = tf;
+    }
+
+    public static bool getBack()
+    {
+        return back;
+    }
+
+
 
     public static void setcarXZ(double carx, double carz)
     {
@@ -105,21 +117,35 @@ public class Calc : MonoBehaviour
     {
         getCurrentReward();
         double Reward;
-        if ((!CheckPoint.getCheckPoint() || !CheckPoint2.getCheckPoint2() || !CheckPoint3.getCheckPoint3())&&!IsFirstStraight())
+        if (getBack())
         {
-            Reward = getCurrentReward() - trackSize * calcCount - preReward;
-            preReward = getCurrentReward() - trackSize * calcCount;
+            Debug.Log("running back");
+            // Reward = getCurrentReward() - trackSize * calcCount - preReward;
+            // preReward = getCurrentReward() - trackSize * calcCount;
+            Reward = -200;
+            preReward = 0;
         }
         else
         {
             Reward = getCurrentReward() - preReward;
             preReward = getCurrentReward();
         }
-        
-        Debug.Log(Reward);
+        Debug.Log("reward is" + Reward.ToString());
+        if (Reward < -1000)
+        {
+            Reward = 0;
+            back = false;
+        }else if(1000 < Reward)
+        {
+            Reward = 0;
+            back = true;
+        }
+         Debug.Log(Reward);
+        //Debug.Log(getCurrentReward());
         //return System.BitConverter.GetBytes(Reward);
         return System.Text.Encoding.UTF8.GetBytes(Reward.ToString());
-}
+       
+    }
     //小数第2位で切り捨て
     public static double ToRoundDown(double dValue, int iDigits)
     {
@@ -195,7 +221,7 @@ public class Calc : MonoBehaviour
     public static bool IsFirstStraight()
     {
         bool isFirstStraight;
-        if(IsRight()&& 0 <= carZ && carZ <= 120)
+        if(IsRight()&& -5 <= carZ && carZ <= 120)
         {
             isFirstStraight = true;
         }
@@ -227,7 +253,7 @@ public class Calc : MonoBehaviour
     public static bool IsThirdStraight()
     {
         bool isThirdStraight;
-        if(IsRight() && -120 <= carZ && carZ < 0)
+        if(IsRight() && -120 <= carZ && carZ < -5)
         {
             isThirdStraight = true;
         }
