@@ -47,11 +47,11 @@ public class trackGoal : MonoBehaviour {
     {
 
 
-        if (Calc.carZ > 0)
+        if (Calc.getCarZ() > 0)
         {
             GameObject.Find("Goal").GetComponent<Collider>().enabled = false;
         }
-        else if (Calc.carZ <= 0)
+        else if (Calc.getCarZ() <= 0)
         {
 
             GameObject.Find("Goal").GetComponent<Collider>().enabled = true;

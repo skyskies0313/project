@@ -7,10 +7,8 @@ public class Calc : MonoBehaviour
     public static double carX; //車のx座標
     public static double preReward = 0;
     public static double trackSize = 1200.00;   //トラックの距離
-    public static Collider other;
     public static int calcCount = trackGoal.getCount();
     
-
 
     public static void setcarXZ(double carx, double carz)
     {
@@ -43,7 +41,7 @@ public class Calc : MonoBehaviour
         double curveSize = 360.00;    //カーブの距離
 
         double d;                     //カーブの中心と車の距離
-        double rad;                   //車進んだカーブの角度
+        double rad;                   //車が進んだカーブの角度
         double reward = 1200.00*calcCount;        //報酬
 
 
@@ -119,8 +117,8 @@ public class Calc : MonoBehaviour
         }
         
         Debug.Log(Reward);
-        return System.BitConverter.GetBytes(Reward);
-    
+        //return System.BitConverter.GetBytes(Reward);
+        return System.Text.Encoding.UTF8.GetBytes(Reward.ToString());
 }
     //小数第2位で切り捨て
     public static double ToRoundDown(double dValue, int iDigits)
