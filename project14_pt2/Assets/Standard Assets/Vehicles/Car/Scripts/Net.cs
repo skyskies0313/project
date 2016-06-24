@@ -69,14 +69,15 @@ namespace WS
 
         void Update()
         {
-            //if (framecount ==3)
-            if (Input.GetKeyDown("g"))
+
+            //if (Input.GetKeyDown("g"))
+            if (framecount == 3)
             {
                 StartCoroutine("GetImage"); // GetImage関数をコルーチンとして実行する
                 //Debug.Log(Calc.calcCount);
-                // framecount = 0;
+                 framecount = 0;
             }
-            //framecount++;
+            framecount++;
         }
     }
 }
