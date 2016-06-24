@@ -120,10 +120,10 @@ public class Calc : MonoBehaviour
         if (getBack())
         {
             Debug.Log("running back");
-            // Reward = getCurrentReward() - trackSize * calcCount - preReward;
-            // preReward = getCurrentReward() - trackSize * calcCount;
-            Reward = -200;
-            preReward = 0;
+            Reward = getCurrentReward() - trackSize * calcCount - preReward;
+            preReward = getCurrentReward() - trackSize * calcCount;
+         //   Reward = -200;
+         //   preReward = 0;
         }
         else
         {

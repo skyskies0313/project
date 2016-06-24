@@ -49,7 +49,7 @@ namespace WS
         IEnumerator GetImage()
         {   // 画像を取得する関数の定義
             data = new byte[2][];
-            data[1] = Calc.CalcReward();
+            data[1] = CalcNoGoal.CalcReward();
             yield return new WaitForEndOfFrame(); // 画面の描画が終わるまで待つ
             tex = new Texture2D(Screen.width, Screen.height, // カメラ画像を保存する変数
                 TextureFormat.RGB24, false);
@@ -70,8 +70,8 @@ namespace WS
         void Update()
         {
 
-            //if (Input.GetKeyDown("g"))
-            if (framecount == 3)
+           // if (Input.GetKeyDown("g"))
+                if (framecount == 10)
             {
                 StartCoroutine("GetImage"); // GetImage関数をコルーチンとして実行する
                 //Debug.Log(Calc.calcCount);

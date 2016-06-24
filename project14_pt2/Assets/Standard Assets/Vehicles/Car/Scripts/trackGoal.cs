@@ -30,8 +30,12 @@ public class trackGoal : MonoBehaviour {
         {
             Calc.setBack(true);
         }*/
-        else if (!(CheckPoint.getCheckPoint() && CheckPoint2.getCheckPoint2() && CheckPoint3.getCheckPoint3())){
+        else if (!(CheckPoint.getCheckPoint() && CheckPoint2.getCheckPoint2() && CheckPoint3.getCheckPoint3())&&Calc.getBack()){
             Calc.setBack(false);
+        }
+        else if(!(CheckPoint.getCheckPoint() && CheckPoint2.getCheckPoint2() && CheckPoint3.getCheckPoint3()) && !Calc.getBack())
+        {
+            Calc.setBack(true);
         }
     }
 
